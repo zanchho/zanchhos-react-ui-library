@@ -30,7 +30,7 @@ my-ui-library/
 
 ### Storybook starten:
 
-[ ] `npm run storybook`
+[x] `npm run storybook`
 
 ### Beispielprojekt Starten:
 
