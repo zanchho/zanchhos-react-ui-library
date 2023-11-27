@@ -1,9 +1,8 @@
-import React from "react"
-import { render } from "@testing-library/react"
-import Button from "./Button"
+require("@testing-library/jest-dom")
+import { render, screen } from "@testing-library/react"
+import { Button } from "./Button"
 
 test("renders button with label", () => {
-  const { getByText } = render(<Button label="Click me" />)
-  const buttonElement = getByText(/Click me/i)
-  expect(buttonElement).toBeInTheDocument()
+  render(<Button label="Click me" />)
+  expect(screen.getByText("Click me")).toBeInTheDocument()
 })
