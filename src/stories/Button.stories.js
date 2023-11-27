@@ -4,7 +4,7 @@ import { Button } from "../components/Button/Button"
 import { action } from "@storybook/addon-actions"
 
 export default {
-  title: "Example/Button",
+  title: "Components/Button",
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
@@ -24,9 +24,18 @@ export default {
     },
     className: {
       control: "text",
-      description: "Classnames if predefined Styles are disabled",
+      description: "Additional Classnames",
     },
-    style: { control: "text", description: "Inline Styling" },
+    wrapperStyle: { control: "object", description: "React CSS Styles Object" },
+    buttonStyle: { control: "object", description: "React CSS Styles Object" },
+    hoverStyle: {
+      control: "object",
+      description: "React CSS Styles Object",
+    },
+    disabledStyle: {
+      control: "object",
+      description: "React CSS Styles Object",
+    },
     disabled: { control: "boolean", description: "Disables the Component" },
     onClick: {
       control: "function",
@@ -35,21 +44,20 @@ export default {
   },
 }
 
-export const WithText = {
+export const Prestyled = {
   args: {
-    label: "Click",
+    label: "Click This",
     onClick: action("Button clicked"),
     isPreStyled: true,
     disabled: false,
   },
 }
 
-export const WithEmoji = {
+export const Unstyled = {
   args: {
-    label: "🦽🛹🚀🚁",
+    label: "Click This",
     onClick: action("🦽🛹🚀🚁 clicked"),
     isPreStyled: false,
-    className: "bg-red",
     disabled: false,
   },
 }
