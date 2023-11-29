@@ -3,13 +3,14 @@ import PropTypes from "prop-types"
 import UIConfig from "../zanchho.uiconfig"
 
 export const Button = ({
+  id,
   label,
-  wrapperStyle,
-  buttonStyle,
+  CompStyle,
+
   hoverStyle,
   disabledStyle,
   isPreStyled,
-  className,
+
   disabled,
   onClick,
 }) => {
@@ -22,7 +23,9 @@ export const Button = ({
   const handleMouseLeave = () => {
     setIsHovered(false)
   }
-
+  const handleOnClick = () => {
+    if (onClick) onClick()
+  }
   const onDisabledStyles = {
     cursor: "not-allowed",
     ...disabledStyle,
@@ -34,7 +37,8 @@ export const Button = ({
     color: UIConfig.getSecondaryColor(),
     ...hoverStyle,
   }
-  const wrapperStyles = {
+  const CompStyles = {
+    minWidth: "7ch",
     border: `2px solid ${UIConfig.getPrimaryColor()}`,
     padding: "0.6em 1em",
     overflow: "hidden",
@@ -42,25 +46,13 @@ export const Button = ({
     borderRadius: "1.6em",
     color: UIConfig.getPrimaryColor(),
     backgroundColor: UIConfig.getSecondaryColor(),
-    ...wrapperStyle,
+    fontWeight: "bold",
+    userSelect: "none",
+    ...CompStyle,
   }
 
-  const buttonStyles = {
-    height: "100%",
-    width: "100%",
-    minWidth: "7ch",
-    textAlign: "center",
-    color: "inherit",
-    background: "inherit",
-    border: "hidden",
-    overflow: "visible",
-    ...buttonStyle,
-  }
-
-  const buttonClassName = `${className}`
-
-  const wrapperClass = () => {
-    const wrapper = isPreStyled ? wrapperStyles : wrapperStyle
+  const styleClass = () => {
+    const wrapper = isPreStyled ? CompStyles : CompStyle
     if (disabled) {
       return { ...wrapper, ...onDisabledStyles }
     }
@@ -74,18 +66,15 @@ export const Button = ({
 
   return (
     <div
-      style={{ ...wrapperClass() }}
+      id={id}
+      style={{ ...styleClass() }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      disabled={disabled}
+      onClick={handleOnClick}
+      data-testid="button-component"
     >
-      <button
-        className={buttonClassName}
-        style={isPreStyled ? buttonStyles : buttonStyle}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        <b>{label}</b>
-      </button>
+      {label}
     </div>
   )
 }
@@ -93,11 +82,11 @@ export const Button = ({
 Button.propTypes = {
   label: PropTypes.string.isRequired,
   isPreStyled: PropTypes.bool,
-  className: PropTypes.string,
+
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   wrapperStyle: PropTypes.object,
-  buttonStyle: PropTypes.object,
+
   hoverStyle: PropTypes.object,
   disabledStyle: PropTypes.object,
 }

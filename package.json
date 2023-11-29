@@ -39,10 +39,10 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
-    "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/addon-viewport": "^7.5.3",
     "@storybook/blocks": "^7.5.3",
     "@storybook/manager-api": "^7.5.3",
@@ -60,6 +60,6 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "keywords": [],
-  "author": "",
+  "author": "zanchho",
   "license": "ISC"
 }
