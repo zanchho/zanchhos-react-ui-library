@@ -10,16 +10,16 @@ test("renders button with label", () => {
   render(<Button label="Click me" />)
   expect(screen.getByText("Click me")).toBeInTheDocument()
 })
+
 test("handles click event", () => {
   const testfunction = jest.fn()
   render(<Button label="Click me" onClick={testfunction} />)
 
-  const el = screen.getByTestId(testid)
-
-  fireEvent.click(el)
+  fireEvent.click(screen.getByTestId(testid))
 
   expect(testfunction).toHaveBeenCalled()
 })
+
 test("applies styles", () => {
   const expectedbgColor = "blue"
   const styles = {
@@ -32,6 +32,7 @@ test("applies styles", () => {
   //invert
   expect(el).not.toHaveStyle(`background-color: green;`)
 })
+
 test("applies styles on hover", () => {
   const expectedbgColor = "black"
   const hstyles = {

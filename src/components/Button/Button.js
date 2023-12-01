@@ -63,10 +63,9 @@ export const Button = ({
 
     return { ...wrapper, ...hover }
   }
-
+  //id={id}
   return (
     <div
-      id={id}
       style={{ ...styleClass() }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

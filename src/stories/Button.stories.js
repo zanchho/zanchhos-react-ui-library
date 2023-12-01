@@ -22,12 +22,7 @@ export default {
       control: "boolean",
       description: "Declare if using predefined Styles",
     },
-    className: {
-      control: "text",
-      description: "Additional Classnames",
-    },
-    wrapperStyle: { control: "object", description: "React CSS Styles Object" },
-    buttonStyle: { control: "object", description: "React CSS Styles Object" },
+
     hoverStyle: {
       control: "object",
       description: "React CSS Styles Object",

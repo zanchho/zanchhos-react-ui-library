@@ -1,3 +1,3 @@
-import TestInputField from "./TestInputField"
+import TestInputField from "./TextInputField"
 
 export default TestInputField
